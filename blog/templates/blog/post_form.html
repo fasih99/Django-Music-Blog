@@ -1,0 +1,28 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+<style media="screen">
+  .form-style
+  {
+    font-family: 'PT Serif', serif;
+    font-size : 1.2em;
+    margin-bottom: 10px;
+    background-color: #f3f5eb;
+  }
+</style>
+    <div class="form-style jumbotron">
+      <h1>New Post</h1>
+      <div class="form-group">
+        <form class="post-form " enctype="multipart/form-data" method="POST">
+           {%csrf_token%}
+           {{form.as_p}}
+           <button type="submit" class="save btn btn-success loader">Save</button>
+        </form>
+      </div>
+    </div>
+
+
+
+    <script>var editor = new MediumEditor('.editable');</script>
+
+{% endblock %}

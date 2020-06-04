@@ -1,0 +1,23 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+<style media="screen">
+  .post-form
+  {
+    font-family: 'PT Serif', serif;
+    font-size : 1.2em;
+    margin-bottom: 10px;
+    background-color: #f3f5eb;
+  }
+</style>
+
+    <h1>New comment</h1>
+    <form method="POST" class="post-form">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit" class="save btn btn-success loader">Post Comment</button>
+    </form>
+
+    <script>var editor = new MediumEditor('.editable');</script>
+
+{% endblock %}
